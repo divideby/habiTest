@@ -20,6 +20,6 @@ export default class Map extends React.Component<{}, any> {
   }
 
   public render() {
-    return <div style={{ height: 200 }} id="habidatum__map" />;
+    return <div style={{ flex: 1, height: "100%" }} id="habidatum__map" />;
   }
 }
