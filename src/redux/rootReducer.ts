@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import placesReducer from "./Places/reducer";
+import tripsReducer from "./Trips/reducer";
 
-export const state = combineReducers({
-  places: placesReducer
+export default combineReducers({
+  trips: tripsReducer
 });

@@ -1,11 +1,20 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import App from './App';
-import './index.css';
-import registerServiceWorker from './registerServiceWorker';
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import App from "./App";
+import "./index.css";
+import registerServiceWorker from "./registerServiceWorker";
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root') as HTMLElement
-);
+const renderApp = () => {
+  ReactDOM.render(<App />, document.getElementById("root") as HTMLElement);
+};
+
+renderApp();
+
+declare const module: { hot: any };
+if (module.hot) {
+  module.hot.accept(["./App"], () => {
+    renderApp();
+  });
+}
+
 registerServiceWorker();
