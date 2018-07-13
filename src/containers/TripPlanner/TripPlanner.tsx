@@ -8,21 +8,21 @@ import { TripsState } from "../../redux/Trips/models";
 import Map from "./Map";
 import TripsList from "./TripsList";
 
-interface TripPlannerProps {
+interface TripViewerProps {
   trips: TripsState;
   fetchTrips: () => any;
 }
 
-interface TripPlannerState {
+interface TripViewerState {
   activeItemIndex?: number;
 }
 
-class TripPlanner extends React.Component<TripPlannerProps, TripPlannerState> {
+class TripViewer extends React.Component<TripViewerProps, TripViewerState> {
   public state = {
     activeItemIndex: undefined
   };
 
-  public constructor(props: TripPlannerProps) {
+  public constructor(props: TripViewerProps) {
     super(props);
     props.fetchTrips();
 
@@ -45,7 +45,7 @@ class TripPlanner extends React.Component<TripPlannerProps, TripPlannerState> {
 
   public render() {
     return (
-      <TripPlannerView>
+      <TripViewerView>
         <TripsList
           tripsList={this.props.trips.list}
           activateItem={this.activateItem}
@@ -56,7 +56,7 @@ class TripPlanner extends React.Component<TripPlannerProps, TripPlannerState> {
           tripsLoaded={!this.props.trips.loading}
           activeItemIndex={this.state.activeItemIndex}
         />
-      </TripPlannerView>
+      </TripViewerView>
     );
   }
 }
@@ -71,9 +71,9 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(TripPlanner);
+)(TripViewer);
 
-const TripPlannerView = styled.div`
+const TripViewerView = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
