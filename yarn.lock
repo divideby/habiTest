@@ -22,11 +22,15 @@
   dependencies:
     wgs84 "0.0.0"
 
+"@mapbox/gl-matrix@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@mapbox/gl-matrix/-/gl-matrix-0.0.1.tgz#e5126aab4d64c36b81c7a97d0ae0dddde5773d2b"
+
 "@mapbox/jsonlint-lines-primitives@^2.0.1":
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/@mapbox/jsonlint-lines-primitives/-/jsonlint-lines-primitives-2.0.1.tgz#bc4c1593e2ec2371e2771c518068d6eab8eeae58"
 
-"@mapbox/mapbox-gl-supported@^1.4.0":
+"@mapbox/mapbox-gl-supported@^1.3.1", "@mapbox/mapbox-gl-supported@^1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@mapbox/mapbox-gl-supported/-/mapbox-gl-supported-1.4.0.tgz#36946b22944fe2cfa43cfafd5ef36fdb54a069e4"
 
@@ -56,7 +60,13 @@
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@mapbox/whoots-js/-/whoots-js-3.0.0.tgz#c1de4293081424da3ac30c23afa850af1019bb54"
 
-"@types/geojson@*":
+"@types/dotenv@^4.0.3":
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/@types/dotenv/-/dotenv-4.0.3.tgz#ebcfc40da7bc0728b705945b7db48485ec5b4b67"
+  dependencies:
+    "@types/node" "*"
+
+"@types/geojson@*", "@types/geojson@^7946.0.4":
   version "7946.0.4"
   resolved "https://registry.yarnpkg.com/@types/geojson/-/geojson-7946.0.4.tgz#4e049756383c3f055dd8f3d24e63fb543e98eb07"
 
@@ -64,7 +74,7 @@
   version "23.1.5"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-23.1.5.tgz#e31be003956e1fa8c860124d99bea9ae327ae37b"
 
-"@types/mapbox-gl@^0.45.2":
+"@types/mapbox-gl@*", "@types/mapbox-gl@^0.45.2":
   version "0.45.2"
   resolved "https://registry.yarnpkg.com/@types/mapbox-gl/-/mapbox-gl-0.45.2.tgz#d0d881c1f283fe617a45c9c0e32c4ef078c995c6"
   dependencies:
@@ -78,11 +88,23 @@
   version "4.5.1"
   resolved "https://registry.yarnpkg.com/@types/papaparse/-/papaparse-4.5.1.tgz#72b12a113c6a3f7a2f82a17e66baaa90aeae26be"
 
+"@types/prop-types@^15.5.3":
+  version "15.5.3"
+  resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.5.3.tgz#bef071852dca2a2dbb65fecdb7bfb30cedae2de2"
+
 "@types/react-dom@^16.0.6":
   version "16.0.6"
   resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-16.0.6.tgz#f1a65a4e7be8ed5d123f8b3b9eacc913e35a1a3c"
   dependencies:
     "@types/node" "*"
+    "@types/react" "*"
+
+"@types/react-map-gl@^3.2.2":
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/@types/react-map-gl/-/react-map-gl-3.2.2.tgz#6d71dcd11d96b58a55a183060694369f7b04c111"
+  dependencies:
+    "@types/geojson" "*"
+    "@types/mapbox-gl" "*"
     "@types/react" "*"
 
 "@types/react-redux@^6.0.4":
@@ -101,6 +123,12 @@
 "@types/redux-actions@^2.3.0":
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/@types/redux-actions/-/redux-actions-2.3.0.tgz#d28d7913ec86ee9e20ecb33a1fed887ecb538149"
+
+"@types/supercluster@^3.0.2":
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/@types/supercluster/-/supercluster-3.0.2.tgz#dc11a6afa3d21b1a3d8510b1759a668fdf19e254"
+  dependencies:
+    "@types/geojson" "*"
 
 abab@^1.0.4:
   version "1.0.4"
@@ -1004,7 +1032,7 @@ babel-register@^6.26.0:
     mkdirp "^0.5.1"
     source-map-support "^0.4.15"
 
-babel-runtime@^6.18.0, babel-runtime@^6.22.0, babel-runtime@^6.26.0, babel-runtime@^6.9.2:
+babel-runtime@^6.18.0, babel-runtime@^6.22.0, babel-runtime@^6.23.0, babel-runtime@^6.26.0, babel-runtime@^6.9.2:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
   dependencies:
@@ -1127,6 +1155,10 @@ bonjour@^3.5.0:
 boolbase@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
+
+bowser@^1.2.0:
+  version "1.9.4"
+  resolved "https://registry.yarnpkg.com/bowser/-/bowser-1.9.4.tgz#890c58a2813a9d3243704334fa81b96a5c150c9a"
 
 boxen@^1.2.1:
   version "1.3.0"
@@ -2978,9 +3010,13 @@ geojson-rewind@^0.3.0:
     minimist "1.2.0"
     sharkdown "^0.1.0"
 
-geojson-vt@^3.1.2:
+geojson-vt@^3.1.0, geojson-vt@^3.1.2:
   version "3.1.4"
   resolved "https://registry.yarnpkg.com/geojson-vt/-/geojson-vt-3.1.4.tgz#c8ffefbe3613d3ad2747e963b0b63b9e62ff11b8"
+
+geojson@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/geojson/-/geojson-0.5.0.tgz#3cd6c96399be65b56ee55596116fe9191ce701c0"
 
 get-caller-file@^1.0.1:
   version "1.0.2"
@@ -3004,9 +3040,37 @@ getpass@^0.1.1:
   dependencies:
     assert-plus "^1.0.0"
 
+gl-mat3@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/gl-mat3/-/gl-mat3-1.0.0.tgz#89633219ca429379a16b9185d95d41713453b912"
+
+gl-mat4@^1.1.4:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/gl-mat4/-/gl-mat4-1.2.0.tgz#49d8a7636b70aa00819216635f4a3fd3f4669b26"
+
 gl-matrix@^2.6.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/gl-matrix/-/gl-matrix-2.6.1.tgz#1bc7f7b396f4ae80abdb4db9a98cd07d170b9004"
+
+gl-quat@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/gl-quat/-/gl-quat-1.0.0.tgz#0945ec923386f45329be5dc357b1c8c2d47586c5"
+  dependencies:
+    gl-mat3 "^1.0.0"
+    gl-vec3 "^1.0.3"
+    gl-vec4 "^1.0.0"
+
+gl-vec2@^1.0.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/gl-vec2/-/gl-vec2-1.2.0.tgz#b0af95d2a582e3ad818446a1800093fc60b8b212"
+
+gl-vec3@^1.0.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/gl-vec3/-/gl-vec3-1.1.3.tgz#a47c62f918774a06cbed1b65bcd0288ecbb03826"
+
+gl-vec4@^1.0.0, gl-vec4@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/gl-vec4/-/gl-vec4-1.0.1.tgz#97d96878281b14b532cbce101785dfd1cb340964"
 
 glob-base@^0.3.0:
   version "0.3.0"
@@ -3136,6 +3200,10 @@ gzip-size@3.0.0:
   resolved "https://registry.yarnpkg.com/gzip-size/-/gzip-size-3.0.0.tgz#546188e9bdc337f673772f81660464b389dce520"
   dependencies:
     duplexer "^0.1.1"
+
+hammerjs@^2.0.8:
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/hammerjs/-/hammerjs-2.0.8.tgz#04ef77862cff2bb79d30f7692095930222bf60f1"
 
 handle-thing@^1.2.5:
   version "1.2.5"
@@ -3407,6 +3475,10 @@ ignore-walk@^3.0.1:
   resolved "https://registry.yarnpkg.com/ignore-walk/-/ignore-walk-3.0.1.tgz#a83e62e7d272ac0e3b551aaa82831a19b69f82f8"
   dependencies:
     minimatch "^3.0.4"
+
+immutable@^3.8.2:
+  version "3.8.2"
+  resolved "https://registry.yarnpkg.com/immutable/-/immutable-3.8.2.tgz#c2439951455bb39913daf281376f1530e104adf3"
 
 import-lazy@^2.1.0:
   version "2.1.0"
@@ -4520,6 +4592,37 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
+mapbox-gl@0.45:
+  version "0.45.0"
+  resolved "https://registry.yarnpkg.com/mapbox-gl/-/mapbox-gl-0.45.0.tgz#af71cc824f0d7e51ccd5c505eaae411bc0910ccd"
+  dependencies:
+    "@mapbox/gl-matrix" "^0.0.1"
+    "@mapbox/jsonlint-lines-primitives" "^2.0.1"
+    "@mapbox/mapbox-gl-supported" "^1.3.1"
+    "@mapbox/point-geometry" "^0.1.0"
+    "@mapbox/shelf-pack" "^3.1.0"
+    "@mapbox/tiny-sdf" "^1.1.0"
+    "@mapbox/unitbezier" "^0.0.0"
+    "@mapbox/vector-tile" "^1.3.1"
+    "@mapbox/whoots-js" "^3.0.0"
+    brfs "^1.4.4"
+    csscolorparser "~1.0.2"
+    earcut "^2.1.3"
+    geojson-rewind "^0.3.0"
+    geojson-vt "^3.1.0"
+    gray-matter "^3.0.8"
+    grid-index "^1.0.0"
+    minimist "0.0.8"
+    pbf "^3.0.5"
+    quickselect "^1.0.0"
+    rw "^1.3.3"
+    shuffle-seed "^1.1.6"
+    sort-object "^0.3.2"
+    supercluster "^2.3.0"
+    through2 "^2.0.3"
+    tinyqueue "^1.1.0"
+    vt-pbf "^3.0.1"
+
 mapbox-gl@^0.46.0:
   version "0.46.0"
   resolved "https://registry.yarnpkg.com/mapbox-gl/-/mapbox-gl-0.46.0.tgz#7deca240ad1690ff783ebe66496ce311b2896f50"
@@ -4558,6 +4661,28 @@ math-expression-evaluator@^1.2.14:
 math-random@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/math-random/-/math-random-1.0.1.tgz#8b3aac588b8a66e4975e3cdea67f7bb329601fac"
+
+math.gl@^1.1.0:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/math.gl/-/math.gl-1.2.1.tgz#3c7da0ae4f3383116c24bc183533cc4d7b8065a9"
+  dependencies:
+    gl-mat3 "^1.0.0"
+    gl-mat4 "^1.1.4"
+    gl-quat "^1.0.0"
+    gl-vec2 "^1.0.0"
+    gl-vec3 "^1.0.3"
+    gl-vec4 "^1.0.1"
+
+math.gl@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/math.gl/-/math.gl-2.0.0.tgz#c41cf8f5cfce820161511c435d3f706eebd7deb0"
+  dependencies:
+    gl-mat3 "^1.0.0"
+    gl-mat4 "^1.1.4"
+    gl-quat "^1.0.0"
+    gl-vec2 "^1.0.0"
+    gl-vec3 "^1.0.3"
+    gl-vec4 "^1.0.1"
 
 md5.js@^1.3.4:
   version "1.3.4"
@@ -4761,6 +4886,12 @@ mixin-deep@^1.2.0:
   dependencies:
     for-in "^1.0.2"
     is-extendable "^1.0.1"
+
+mjolnir.js@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/mjolnir.js/-/mjolnir.js-1.2.1.tgz#ab3237afc5fbbc8aa4bafc965b10735c4bf8328c"
+  dependencies:
+    hammerjs "^2.0.8"
 
 mkdirp@0.5.x, mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkdirp@~0.5.1:
   version "0.5.1"
@@ -5695,7 +5826,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.4, prop-types@^15.6.0:
+prop-types@^15.5.4, prop-types@^15.5.7, prop-types@^15.6.0:
   version "15.6.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.2.tgz#05d5ca77b4453e985d60fc7ff8c859094a497102"
   dependencies:
@@ -5893,6 +6024,19 @@ react-error-overlay@^4.0.0:
 react-is@^16.3.1:
   version "16.4.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.4.1.tgz#d624c4650d2c65dbd52c72622bbf389435d9776e"
+
+react-map-gl@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/react-map-gl/-/react-map-gl-3.3.0.tgz#dad906ec4c56a51873884325c44025d49516a9ea"
+  dependencies:
+    babel-runtime "^6.23.0"
+    bowser "^1.2.0"
+    immutable "^3.8.2"
+    mapbox-gl "0.45"
+    math.gl "^1.1.0"
+    mjolnir.js "^1.2.1"
+    prop-types "^15.5.7"
+    viewport-mercator-project "^5.1.0"
 
 react-redux@^5.0.7:
   version "5.0.7"
@@ -7541,6 +7685,12 @@ verror@1.10.0:
     assert-plus "^1.0.0"
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
+
+viewport-mercator-project@^5.1.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/viewport-mercator-project/-/viewport-mercator-project-5.2.0.tgz#2c50bc624a085d01a3a486f22ec329c0511fe4bd"
+  dependencies:
+    math.gl "^2.0.0"
 
 vlq@^0.2.2:
   version "0.2.3"

@@ -6,6 +6,8 @@
   "rules": {
     "interface-name": [true, "never-prefix"],
     "no-console": false,
+    "object-literal-sort-keys": false,
+    "jsx-no-lambda": false,
     "ordered-imports": [
       true,
       {
