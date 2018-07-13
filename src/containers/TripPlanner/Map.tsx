@@ -1,25 +1,81 @@
-import * as mapboxgl from "mapbox-gl/dist/mapbox-gl";
 import * as React from "react";
+import ReactMapGL, { Marker, Viewport } from "react-map-gl";
 
-(mapboxgl as any).accessToken =
-  "pk.eyJ1IjoiZGl2aWRlYnkiLCJhIjoiY2pqaDNhc2N3MDltdDNwcmw4aDNyMTJmcyJ9.XGhJBeOsXtqQqTTNemDQWA";
+import { CircleMarker } from "../../components";
+import { TripEntity } from "../../redux/Trips/models";
 
-// export interface IMapProps {
-// }
+interface MapState {
+  mapLoaded: boolean;
+  viewport: Viewport;
+}
 
-export default class Map extends React.Component {
-  public componentDidMount() {
-    const map = new mapboxgl.Map({
-      container: "habidatum__map",
-      style: "mapbox://styles/mapbox/streets-v10"
-    });
+interface MapProps {
+  tripsList: TripEntity[];
+  tripsLoaded: boolean;
+  activeItemIndex?: number;
+}
 
-    map.on("load", () => {
-      // hello
-    });
+class Map extends React.Component<MapProps, MapState> {
+  public state = {
+    mapLoaded: false,
+    viewport: {
+      latitude: 40.71958611647166,
+      longitude: -74.04311746358871,
+      zoom: 12,
+      width: 700,
+      height: 700,
+      mapboxApiAccessToken:
+        "pk.eyJ1IjoiZGl2aWRlYnkiLCJhIjoiY2pqaDNhc2N3MDltdDNwcmw4aDNyMTJmcyJ9.XGhJBeOsXtqQqTTNemDQWA"
+    }
+  };
+
+  public constructor(props: MapProps) {
+    super(props);
+    this.updateViewport = this.updateViewport.bind(this);
+  }
+
+  public updateViewport(viewport: any) {
+    this.setState({ viewport });
   }
 
   public render() {
-    return <div style={{ flex: 1, height: "100%" }} id="habidatum__map" />;
+    return (
+      <ReactMapGL
+        {...this.state.viewport}
+        onViewportChange={this.updateViewport}
+      >
+        {this.props.tripsList.map((item, index) => {
+          const active = index === this.props.activeItemIndex;
+          return (
+            <>
+              <Marker
+                className={active ? "marker__active" : undefined}
+                longitude={item.startStationLongitude}
+                latitude={item.startStationLatitude}
+              >
+                <CircleMarker
+                  scale={1 + item.tripduration / 1000}
+                  label={item.startStationName}
+                  active={active}
+                />
+              </Marker>
+              <Marker
+                className={active ? "marker__active" : undefined}
+                longitude={item.endStationLongitude}
+                latitude={item.endStationLatitude}
+              >
+                <CircleMarker
+                  scale={1 + item.tripduration / 1000}
+                  label={item.endStationName}
+                  active={active}
+                />
+              </Marker>
+            </>
+          );
+        })}
+      </ReactMapGL>
+    );
   }
 }
+
+export default Map;
