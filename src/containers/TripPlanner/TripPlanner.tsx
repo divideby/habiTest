@@ -4,33 +4,65 @@ import { Dispatch } from "redux";
 import styled from "styled-components";
 
 import { fetchTrips } from "../../redux/Trips/actions";
-import { TripEntity } from "../../redux/Trips/models";
+import { TripsState } from "../../redux/Trips/models";
 import Map from "./Map";
 import TripsList from "./TripsList";
 
 interface TripPlannerProps {
-  tripsList: TripEntity[];
+  trips: TripsState;
   fetchTrips: () => any;
 }
 
-class TripPlanner extends React.Component<TripPlannerProps> {
+interface TripPlannerState {
+  activeItemIndex?: number;
+}
+
+class TripPlanner extends React.Component<TripPlannerProps, TripPlannerState> {
+  public state = {
+    activeItemIndex: undefined
+  };
+
   public constructor(props: TripPlannerProps) {
     super(props);
     props.fetchTrips();
+
+    this.activateItem = this.activateItem.bind(this);
+    this.deactivateItem = this.deactivateItem.bind(this);
+  }
+
+  public activateItem(activeItemIndex: number) {
+    this.setState({ activeItemIndex });
+  }
+
+  public deactivateItem(itemIndex: number) {
+    this.setState(
+      prevState =>
+        prevState.activeItemIndex === itemIndex
+          ? { activeItemIndex: undefined }
+          : { activeItemIndex: itemIndex }
+    );
   }
 
   public render() {
     return (
       <TripPlannerView>
-        <TripsList tripsList={this.props.tripsList} />
-        <Map />
+        <TripsList
+          tripsList={this.props.trips.list}
+          activateItem={this.activateItem}
+          deactivateItem={this.deactivateItem}
+        />
+        <Map
+          tripsList={this.props.trips.list}
+          tripsLoaded={!this.props.trips.loading}
+          activeItemIndex={this.state.activeItemIndex}
+        />
       </TripPlannerView>
     );
   }
 }
 
 const mapStateToProps = (state: any) => ({
-  tripsList: state.trips.list
+  trips: state.trips
 });
 const mapDispatchToProps = (dispatch: Dispatch) => ({
   fetchTrips: () => dispatch(fetchTrips())
