@@ -7,7 +7,7 @@ import * as React from "react";
 // export interface IMapProps {
 // }
 
-export default class Map extends React.Component<{}, any> {
+export default class Map extends React.Component {
   public componentDidMount() {
     const map = new mapboxgl.Map({
       container: "habidatum__map",
