@@ -18,11 +18,10 @@ function* fetchPlacesHandler() {
       })
     );
   const parseResult = yield call(parse);
-  console.log("DTDBF: parseResult", parseResult.data.slice(0, 10));
-  const first10: TripEntity[] = parseResult.data
-    .slice(0, 10)
+  const first50: TripEntity[] = parseResult.data
+    .slice(0, 50)
     .map((place: any) => convertToCamelCase<TripEntity>(place));
-  yield put(fetchPlacesSuccess(first10));
+  yield put(fetchPlacesSuccess(first50));
 }
 
 function* fetchPlacesWatcher() {
