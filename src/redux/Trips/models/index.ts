@@ -1,2 +1,2 @@
 export * from "./TripEntity";
-export * from "./State";
+export * from "./TripsState";

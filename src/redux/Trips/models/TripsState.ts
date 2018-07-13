@@ -1,5 +1,5 @@
 import { TripEntity } from "./TripEntity";
-export interface State {
+export interface TripsState {
   list: TripEntity[];
   loading: boolean;
   error: object;

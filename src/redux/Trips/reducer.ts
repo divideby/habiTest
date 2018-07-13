@@ -5,23 +5,26 @@ import {
   FETCH_TRIPS_ERROR,
   FETCH_TRIPS_SUCCESS
 } from "./actionTypes";
-import { State, TripEntity } from "./models";
+import { TripEntity, TripsState } from "./models";
 
-const initialState: State = {
+const initialState: TripsState = {
   error: {},
   list: [],
   loading: false
 };
 
-const reducer = handleActions<State, TripEntity[] | object>(
+const reducer = handleActions<TripsState, TripEntity[] | object>(
   {
-    [FETCH_TRIPS]: (state: State): State => {
+    [FETCH_TRIPS]: (state: TripsState): TripsState => {
       return {
         ...state,
         loading: true
       };
     },
-    [FETCH_TRIPS_ERROR]: (state: State, action: Action<object>): State => {
+    [FETCH_TRIPS_ERROR]: (
+      state: TripsState,
+      action: Action<object>
+    ): TripsState => {
       const { payload = {} } = action;
       return {
         ...state,
@@ -29,9 +32,9 @@ const reducer = handleActions<State, TripEntity[] | object>(
       };
     },
     [FETCH_TRIPS_SUCCESS]: (
-      state: State,
+      state: TripsState,
       action: Action<TripEntity[]>
-    ): State => {
+    ): TripsState => {
       const { payload = [] } = action;
       return {
         ...state,
